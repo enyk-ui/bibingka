@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maligayang Kaarawan, Leonor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --forest-green: #1a4d3e;
+            --cranberry: #8b4049;
+            --cream: #f8f6f1;
+            --gold: #c9a961;
+            --text-dark: #2c3e36;
+            --text-light: #6b7f75;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 120px 40px 80px;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .ornament {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            margin: 0 auto 40px;
+            opacity: 0.4;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 400;
+            color: var(--forest-green);
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+            margin-bottom: 80px;
+        }
+
+        .divider {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 60px auto;
+            opacity: 0.3;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px 120px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 2px;
+            padding: 100px 80px;
+            margin-bottom: 60px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(26, 77, 62, 0.08);
+        }
+
+        .bibingka-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--cranberry);
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            font-weight: 300;
+            color: var(--text-light);
+            margin-bottom: 80px;
+            letter-spacing: 0.03em;
+        }
+
+        .bibingka-illustration {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 0 auto;
+        }
+
+        .bibingka-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            border: 1px solid rgba(26, 77, 62, 0.1);
+            background: white;
+        }
+
+        .bibingka-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: saturate(0.9) brightness(1.05);
+        }
+
+        .bibingka-image-wrapper:hover .bibingka-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(26, 77, 62, 0.05));
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, var(--forest-green), #2a6050);
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--forest-green);
+            margin-top: 40px;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #2a6050, var(--forest-green));
+            box-shadow: 0 8px 24px rgba(26, 77, 62, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-section {
+            text-align: center;
+            padding: 100px 40px;
+            border-top: 1px solid rgba(26, 77, 62, 0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 300;
+            letter-spacing: 0.03em;
+            line-height: 1.8;
+        }
+
+        /* Subtle animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header, .card, .footer-section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .card {
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+
+            .card {
+                padding: 60px 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 20px 40px;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 5vw, 3rem);
+                margin-bottom: 16px;
+            }
+
+            .subtitle {
+                font-size: clamp(1rem, 2.5vw, 1.25rem);
+                margin-bottom: 50px;
+            }
+
+            .ornament {
+                height: 40px;
+                margin-bottom: 30px;
+            }
+
+            .main-content {
+                padding: 0 20px 60px;
+            }
+
+            .card {
+                padding: 40px 24px;
+                border-radius: 4px;
+                margin-bottom: 40px;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+                margin-bottom: 12px;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 50px;
+            }
+
+            .divider {
+                margin: 40px auto;
+            }
+
+            .image-gallery {
+                gap: 16px;
+            }
+
+            .bibingka-image-wrapper {
+                aspect-ratio: 1;
+            }
+
+            .cta-button {
+                padding: 14px 36px;
+                font-size: 0.85rem;
+                margin-top: 30px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .footer-section {
+                padding: 60px 20px;
+            }
+
+            .footer-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 50px 16px 30px;
+            }
+
+            h1 {
+                font-size: clamp(1.75rem, 5vw, 2.5rem);
+                margin-bottom: 12px;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 40px;
+                letter-spacing: 0.04em;
+            }
+
+            .ornament {
+                height: 30px;
+                margin-bottom: 20px;
+            }
+
+            .main-content {
+                padding: 0 16px 50px;
+            }
+
+            .card {
+                padding: 30px 16px;
+                margin-bottom: 30px;
+            }
+
+            .bibingka-section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: clamp(1.25rem, 4vw, 1.75rem);
+                margin-bottom: 8px;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 40px;
+            }
+
+            .divider {
+                width: 80px;
+                margin: 30px auto;
+            }
+
+            .bibingka-illustration {
+                max-width: 100%;
+            }
+
+            .image-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+                max-width: 100%;
+                margin: 0 auto;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+
+            .cta-button {
+                padding: 12px 32px;
+                font-size: 0.8rem;
+                margin-top: 25px;
+                width: 100%;
+                max-width: none;
+            }
+
+            .cta-button:hover {
+                transform: translateY(-1px);
+            }
+
+            .footer-section {
+                padding: 50px 16px;
+            }
+
+            .footer-text {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+        }
+
+        /* Sophisticated background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(26, 77, 62, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 64, 73, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="ornament"></div>
+        <h1>Maligayang Kaarawan</h1>
+        <div class="subtitle">LEONOR</div>
+    </header>
+
+    <div class="main-content">
+        <div class="card">
+            <div class="bibingka-section">
+                <h2 class="section-title">Bibingka para sa'yo</h2>
+                <p class="section-subtitle">A traditional celebration</p>
+
+                <div class="divider"></div>
+
+                <div class="bibingka-illustration">
+                    <div class="image-gallery">
+                        <div class="bibingka-image-wrapper">
+                            <img src="https://pilipinasrecipes.com/wp-content/uploads/2017/11/Bibingkang-Malagkit-Recipe.jpg" 
+                                 alt="Bibingkang Malagkit" 
+                                 class="bibingka-image">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="bibingka-image-wrapper">
+                            <img src="https://www.allrecipes.com/thmb/cgcXQIfMMVOodHSddCbIHU1BLPg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/269034chewy-coconut-bibingka-filipino-rice-cakeKim4x3-a9a910f85ea440829a6f2805ee26a478.jpg" 
+                                 alt="Chewy Coconut Bibingka" 
+                                 class="bibingka-image">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="bibingka-image-wrapper">
+                            <img src="https://yummykitchentv.com/wp-content/uploads/2023/11/Royal-Bibingka-recipe.jpg" 
+                                 alt="Royal Bibingka" 
+                                 class="bibingka-image">
+                            <div class="image-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <button id="celebrateBtn" class="cta-button">Celebrate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden YouTube Player for Audio -->
+    <div id="player" style="display: none;"></div>
+
+    <footer class="footer-section">
+        <p class="footer-text">
+            Wishing you a day filled with warmth, joy, and cherished moments.<br>
+            May this year bring you endless blessings.
+        </p>
+    </footer>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        let player;
+        let isPlaying = false;
+
+        // Initialize YouTube player
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'W-KugsNQ5tI',
+                playerVars: {
+                    'start': 45,
+                    'autoplay': 0,
+                    'controls': 0,
+                    'modestbranding': 1,
+                    'rel': 0,
+                    'fs': 0
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            const btn = document.getElementById('celebrateBtn');
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+            
+            btn.addEventListener('click', toggleMusic);
+        }
+
+        function toggleMusic() {
+            if (!player || !player.playVideo) {
+                console.error('Player not ready');
+                return;
+            }
+
+            const btn = document.getElementById('celebrateBtn');
+            
+            if (!isPlaying) {
+                try {
+                    player.playVideo();
+                    btn.textContent = 'Pause';
+                    btn.style.background = 'linear-gradient(135deg, var(--cranberry), #a05058)';
+                    isPlaying = true;
+                } catch (e) {
+                    console.error('Play error:', e);
+                }
+            } else {
+                try {
+                    player.pauseVideo();
+                    btn.textContent = 'Celebrate';
+                    btn.style.background = 'linear-gradient(135deg, var(--forest-green), #2a6050)';
+                    isPlaying = false;
+                } catch (e) {
+                    console.error('Pause error:', e);
+                }
+            }
+        }
+
+        function onPlayerStateChange(event) {
+            const btn = document.getElementById('celebrateBtn');
+            if (event.data === YT.PlayerState.ENDED) {
+                btn.textContent = 'Celebrate';
+                btn.style.background = 'linear-gradient(135deg, var(--forest-green), #2a6050)';
+                isPlaying = false;
+            }
+        }
+
+        function onPlayerError(event) {
+            console.error('YouTube player error:', event.data);
+        }
+
+        // Ensure button is initialized
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('celebrateBtn');
+            if (btn && !player) {
+                // Wait a bit for YouTube API to load
+                setTimeout(function() {
+                    if (!player) {
+                        console.warn('Player not initialized, attempting again');
+                        onYouTubeIframeAPIReady();
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
